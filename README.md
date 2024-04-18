@@ -1,2 +1,2 @@
 # SoccerEye
-A Comprehensive Analysis Tool for Soccer Match Videos Using Single-Camera Perspective
+SoccerEye: An Open-Source System for Understanding Monocular Football Videos
