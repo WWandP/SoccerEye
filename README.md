@@ -54,8 +54,7 @@ You can flexibly customize the placement and transparency of the ads by adjustin
    ```python
    # The 1920 x1080 coordinate system is used as the reference , and the origin is in the upper left corner
    frame = show_ad ( detections =players_detections , homography =M , img =frame , ad_img = ad , coord =(800 , 400) ,alpha =0.3)
-   ```
-<br>
+   ```  
 3.**Considerations under BEV**  
 We added a Kalman filter to the ground to bird 's-eye view homography matrix to ensure its smoothness, but we did not add recognition for different scene transitions, so we do not recommend using broadcast video with shot transitions. At the same time, soccer videos with fixed viewpoints will have better results.
 <br>
