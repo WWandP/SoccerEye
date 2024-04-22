@@ -46,7 +46,7 @@ Our example video is a soccer video with a fixed scene.
 In the case of custom videos, you need to make some adjustments to the code section to suit your needs.  
 1.Set the team color filter  
    You need to color the players' clothes and assign a specific team to each jersey. In *inference/filters.py*, you can configure the color of the combined team's jersey and the corresponding team name.
-The selection of a wide range of appropriate color filters can improve the classification accuracy.
+The selection of a wide range of appropriate color filters can improve the classification accuracy.  
 2.Custom AD projection
 You can flexibly customize the placement and transparency of the ads by adjusting the parameters near line 130 in run.py  
 ```python
