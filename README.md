@@ -4,9 +4,19 @@
 
 #### Overview
 1. **Introduction**  
-   SoccerEye is a monocular soccer video processing system that contains a range of functions needed to understand soccer videos. These include player identification, team segmentation, trajectory visualization on bird's eye view, real-time speed display, and advertising maps.
-2. **Demo**  
-   ![Result](https://github.com/WWandP/SoccerEye/blob/main/demo/demo.gif)
+SoccerEye is a monocular soccer video processing system that contains a series of functions required for soccer video data visualization. This includes:
+ * player and football object detection
+ * player grouping
+ * trajectory visualization on bird's eye view
+ * real-time speed display
+ * advertising maps
+2. **Demo**
+   <div align=center>
+   <img src="https://github.com/WWandP/SoccerEye/blob/main/demo/demo.gif" width="480" height="260">
+   </div>
+   <p align="center">
+    video after processing with SoccerEye
+   </p>
 ---
 
 #### Quick Start
@@ -26,8 +36,8 @@
    We provide two pre-trained models for the detector, yolov8x_1280.pt, an object detection model trained on yolov8 and maskrcnn.pth, an instance segmentation model . yolov8x_1280.pt is trained on 1103 custom soccer scene images. maskrcnn is a pre-trained model based on COCO dataset.  
 Our example video is a soccer video with a fixed scene.  
 
-   * Download the pretrained model from here and put it in the *model/* folder.  
-   * Download the test [video](https://drive.google.com/file/d/1DszEnRSF5E6NpWvgneFxHAlaP8dxFIsm/view?usp=drive_link) from here and  put it in the *video/* folder.   
+   * Download the pretrained model([yolov8](https://drive.google.com/file/d/1CxbNcKDag-Z4B5Ez8XmlFvaGgZVlFdzi/view?usp=drive_link) or [maskrcnn](https://drive.google.com/file/d/1PpIXoDwLi-FuBFAVUsIwh0Ljm93JiQaH/view?usp=drive_link)) from here and put it in the *model/* folder.  
+   * Download the [test video](https://drive.google.com/file/d/1DszEnRSF5E6NpWvgneFxHAlaP8dxFIsm/view?usp=drive_link) from here and  put it in the *video/* folder.   
 3. **To start using SoccerEye, run the following command:**
    ```bash
    python run.py --detector yolo --model_path model/yolov8x_1280.pt --video video/video.avi
@@ -58,4 +68,7 @@ You can flexibly customize the placement and transparency of the ads by adjustin
 3.**Considerations under BEV**  
 We added a Kalman filter to the ground to bird 's-eye view homography matrix to ensure its smoothness, but we did not add recognition for different scene transitions, so we do not recommend using broadcast video with shot transitions. At the same time, soccer videos with fixed viewpoints will have better results.
 <br>
+4.**Custom bird's eye view map**  
+SoccerEye integrates the function of using opencv to detect the center circle of the soccer field map. If you want to use a custom bird 's-eye view small map image, please ensure that the center circle is very obvious and the image size is 1920 x1080, which is conducive to accurate advertising images.
+
 
