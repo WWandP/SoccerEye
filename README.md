@@ -27,7 +27,7 @@
 Our example video is a soccer video with a fixed scene.  
 
    * Download the pretrained model from here and put it in the *model/* folder.  
-   * Download the test video from here and  put it in the *video/* folder.   
+   * Download the test [video](https://drive.google.com/file/d/1DszEnRSF5E6NpWvgneFxHAlaP8dxFIsm/view?usp=drive_link) from here and  put it in the *video/* folder.   
 3. **To start using SoccerEye, run the following command:**
    ```bash
    python run.py --detector yolo --model_path model/yolov8x_1280.pt --video video/video.avi
