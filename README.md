@@ -83,8 +83,35 @@ We added a Kalman filter to the ground to bird 's-eye view homography matrix to 
 SoccerEye integrates the function of using opencv to detect the center circle of the soccer field map. If you want to use a custom bird 's-eye view small map image, please ensure that the center circle is very obvious and the image size is 1920 x1080, which is conducive to accurate advertising images.
 
 ---
-#### The dataset used by the detector
-You can view or download the dataset we used to train object detection here
+#### Other downloadable data  
+If you are interested in training our yolo model, you can download the dataset we collected here (people and balls on the football field only). In addition, we also have 4 yolo models(Not included is based on the COCO dataset) trained with different scales and different number of parameters, which you can download according to your device requirements. Their information is as follows:  
+| Model    | Size       | Class  | mAP50  | mAP50-95 |
+|----------|------------|--------|--------|-------|
+| YOLOv8x(COCO)  | 640 × 640  | all    | 0.511  | 0.283 |
+|          |            | person | 0.875  | 0.513 |
+|          |            | ball   | 0.148  | 0.053 |
+| YOLOv8x  | 640 × 640  | all    | 0.716  | 0.507 |
+|          |            | person | 0.978  | 0.793 |
+|          |            | ball   | 0.453  | 0.222 |
+| YOLOV8l  | 640 × 640  | all    | 0.773  | 0.529 |
+|          |            | person | 0.98   | 0.779 |
+|          |            | ball   | 0.565  | 0.278 |
+| YOLOV8m  | 1280 × 1280| all    | 0.795  | 0.59  |
+|          |            | person | 0.989  | 0.832 |
+|          |            | ball   | 0.601  | 0.348 |
+| YOLOV8l  | 1280 × 1280| all    | 0.831  | 0.614 |
+|          |            | person | 0.981  | 0.833 |
+|          |            | ball   | 0.681  | 0.396 |
+| YOLOv8x  | 1280 × 1280| all    | 0.847  | 0.625 |
+|          |            | person | 0.982  | 0.840 |
+|          |            | ball   | 0.713  | 0.411 |
+---  
+#### Contact
+ If you need further information or advice, please contact us[pww_work@163.com](pww_work@163.com)
+
+
+
+
 
 
 
