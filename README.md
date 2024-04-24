@@ -11,21 +11,18 @@ Its specific functions include the following:
  * trajectory visualization on bird's eye view
  * real-time speed display
  * advertising maps
- <div align=center>
-   <img src="https://github.com/WWandP/SoccerEye/blob/main/demo/show.png" width="400" height="333">
-</div>  
-  <p align="center">
-  Functional diagram of SoccerEye
-  </p> 
+
 
  
 2. **Demo**
+   
    <div align=center>
    <img src="https://github.com/WWandP/SoccerEye/blob/main/demo/demo.gif" width="480" height="260">
    </div>
    <p align="center">
     Video clips after processing with SoccerEye
-   </p>
+   </p>  
+   
 ---
 
 #### Quick Start
@@ -55,12 +52,13 @@ Our example video is a soccer video with a fixed scene.
    ```bash
    python run.py --detector yolo --model_path model/yolov8x_1280.pt --video video/video.avi --bev
    ```
-   Image embedding allows you to place AD images on the field, but it requires an instance segmentation model, which you can use with the following command:
-   ```bash
+4.Image embedding allows you to place AD images in the field, but it requires an instance segmentation model, so you need to switch the detector to maskrcnn and specify the pre-trained model for maskrcnn. After that, you can use the following command:  
+```bash
    python run.py --detector maskrcnn --model_path model/maskrcnn.pth --video video/video.avi --bev --ad
-   ```
-   When using the *--bev* command, the speed display is enabled by default, but if you want to turn it off, add the *--nospeed* command.
----
+```
+When using the *--bev* command, the speed display is enabled by default, but if you want to turn it off, add the *--nospeed* command.  
+
+---  
 #### Custom videos
 In the case of custom videos, you need to make some adjustments to the code section to suit your needs.  
 <br>
@@ -83,7 +81,7 @@ SoccerEye integrates the function of using opencv to detect the center circle of
 
 ---
 #### Other downloadable data  
-If you are interested in training our yolo model, you can download the dataset we collected [here](https://drive.google.com/file/d/1RHDHztUHho1zP1sKJXts1UxoFtrB2uFz/view?usp=drive_link) (people and balls on the football field only). In addition, we also have 4 yolo models(Not included is based on the COCO dataset) trained with different scales and different number of parameters, which you can download according to your device requirements. Their Training information is as follows:  
+If you are interested in training our yolo model, you can download the dataset we collected [here](https://drive.google.com/file/d/1RHDHztUHho1zP1sKJXts1UxoFtrB2uFz/view?usp=drive_link) (people and balls on the football field only). In addition, we also have 5 yolo models(Not included is based on the COCO dataset) trained with different scales and different number of parameters, which you can download according to your device requirements. Their Training information is as follows:  
 | Model    | Size       | Class  | mAP50  | mAP50-95 |
 |----------|------------|--------|--------|-------|
 | YOLOv8x(COCO)  | 640 × 640  | all    | 0.511  | 0.283 |
