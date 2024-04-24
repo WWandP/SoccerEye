@@ -4,20 +4,19 @@
 
 #### Overview
 1. **Introduction**  
-SoccerEye is a monocular soccer video processing system that contains a series of functions required for soccer video data visualization.
- <div align=center>
-   <img src="https://github.com/WWandP/SoccerEye/blob/main/demo/show.png" width="400" height="333">
-</div>  
-  <p align="center">
-  Functional diagram of SoccerEye
-  </p>  
-  
+SoccerEye is a monocular soccer video processing system that contains a series of functions required for soccer video data visualization.  
 Its specific functions include the following:
  * player and football object detection
  * player grouping
  * trajectory visualization on bird's eye view
  * real-time speed display
- * advertising maps  
+ * advertising maps
+ <div align=center>
+   <img src="https://github.com/WWandP/SoccerEye/blob/main/demo/show.png" width="400" height="333">
+</div>  
+  <p align="center">
+  Functional diagram of SoccerEye
+  </p> 
 
  
 2. **Demo**
@@ -25,7 +24,7 @@ Its specific functions include the following:
    <img src="https://github.com/WWandP/SoccerEye/blob/main/demo/demo.gif" width="480" height="260">
    </div>
    <p align="center">
-    video after processing with SoccerEye
+    Video clips after processing with SoccerEye
    </p>
 ---
 
@@ -84,30 +83,53 @@ SoccerEye integrates the function of using opencv to detect the center circle of
 
 ---
 #### Other downloadable data  
-If you are interested in training our yolo model, you can download the dataset we collected here (people and balls on the football field only). In addition, we also have 4 yolo models(Not included is based on the COCO dataset) trained with different scales and different number of parameters, which you can download according to your device requirements. Their information is as follows:  
+If you are interested in training our yolo model, you can download the dataset we collected [here](https://drive.google.com/file/d/1RHDHztUHho1zP1sKJXts1UxoFtrB2uFz/view?usp=drive_link) (people and balls on the football field only). In addition, we also have 4 yolo models(Not included is based on the COCO dataset) trained with different scales and different number of parameters, which you can download according to your device requirements. Their Training information is as follows:  
 | Model    | Size       | Class  | mAP50  | mAP50-95 |
 |----------|------------|--------|--------|-------|
 | YOLOv8x(COCO)  | 640 × 640  | all    | 0.511  | 0.283 |
 |          |            | person | 0.875  | 0.513 |
 |          |            | ball   | 0.148  | 0.053 |
-| YOLOv8x  | 640 × 640  | all    | 0.716  | 0.507 |
+| [YOLOv8x](https://drive.google.com/file/d/1hHgq_yD_AA2ioHVIidB4FfMyZYpZxRO1/view?usp=drive_link)  | 640 × 640  | all    | 0.716  | 0.507 |
 |          |            | person | 0.978  | 0.793 |
 |          |            | ball   | 0.453  | 0.222 |
-| YOLOV8l  | 640 × 640  | all    | 0.773  | 0.529 |
+| [YOLOV8l](https://drive.google.com/file/d/1-VRIjoJcjY4_D_MHOcIGgxHVmB_pid1r/view?usp=drive_link)  | 640 × 640  | all    | 0.773  | 0.529 |
 |          |            | person | 0.98   | 0.779 |
 |          |            | ball   | 0.565  | 0.278 |
-| YOLOV8m  | 1280 × 1280| all    | 0.795  | 0.59  |
+| [YOLOV8m](https://drive.google.com/file/d/1hHgq_yD_AA2ioHVIidB4FfMyZYpZxRO1/view?usp=drive_link)  | 1280 × 1280| all    | 0.795  | 0.59  |
 |          |            | person | 0.989  | 0.832 |
 |          |            | ball   | 0.601  | 0.348 |
-| YOLOV8l  | 1280 × 1280| all    | 0.831  | 0.614 |
+| [YOLOV8l](https://drive.google.com/file/d/1z27p0vS5VHydnWP6opyz_fRn-NnyCpgs/view?usp=drive_link)  | 1280 × 1280| all    | 0.831  | 0.614 |
 |          |            | person | 0.981  | 0.833 |
 |          |            | ball   | 0.681  | 0.396 |
-| YOLOv8x  | 1280 × 1280| all    | 0.847  | 0.625 |
+| [YOLOv8x](https://drive.google.com/file/d/1CxbNcKDag-Z4B5Ez8XmlFvaGgZVlFdzi/view?usp=drive_link)  | 1280 × 1280| all    | 0.847  | 0.625 |
 |          |            | person | 0.982  | 0.840 |
-|          |            | ball   | 0.713  | 0.411 |
+|          |            | ball   | 0.713  | 0.411 |  
+
+On another [test set](https://drive.google.com/file/d/1g4QTyTjOm7cx0VP_oAAi0NidJPxwFFdm/view?usp=drive_link) with a different style, their results are as follows  
+| Model    | Size       | Class  | mAP50  | mAP50-95 |
+|----------|------------|--------|--------|-------|
+| YOLOV8l  | 640 × 640  | all    | 0.707  | 0.313 |
+|          |            | person | 0.921  | 0.448 |
+|          |            | ball   | 0.494  | 0.178 |
+| YOLOv8x  | 640 × 640  | all    | 0.721  | 0.343 |
+|          |            | person | 0.919  | 0.468 |
+|          |            | ball   | 0.524  | 0.217 |
+| YOLOv8x(COCO)  | 640 × 640  | all    | 0.754  | 0.367 |
+|          |            | person | 0.918  | 0.478 |
+|          |            | ball   | 0.59   | 0.257 |
+| YOLOV8l  | 1280 × 1280| all    | 0.811  | 0.365 |
+|          |            | person | 0.931  | 0.488 |
+|          |            | ball   | 0.691  | 0.243 |
+| YOLOV8m  | 1280 × 1280| all    | 0.823  | 0.361 |
+|          |            | person | 0.926  | 0.474 |
+|          |            | ball   | 0.721  | 0.248 |
+| YOLOv8x  | 1280 × 1280| all    | 0.823  | 0.359 |
+|          |            | person | 0.918  | 0.452 |
+|          |            | ball   | 0.729  | 0.266 |
+
 ---  
 #### Contact
- If you need further information or advice, please contact us[pww_work@163.com](pww_work@163.com)
+ If you need further information or advice, please contact us:[pww_work@163.com](pww_work@163.com)
 
 
 
