@@ -3,16 +3,23 @@
 ---
 
 #### Overview
-1. **Introduction**
+1. **Introduction**  
+SoccerEye is a monocular soccer video processing system that contains a series of functions required for soccer video data visualization.
  <div align=center>
-   <img src="https://github.com/WWandP/SoccerEye/blob/main/demo/show.png" width="1218" height="1006">
-</div>
-SoccerEye is a monocular soccer video processing system that contains a series of functions required for soccer video data visualization. This includes:
+   <img src="https://github.com/WWandP/SoccerEye/blob/main/demo/show.png" width="400" height="333">
+</div>  
+  <p align="center">
+  Functional diagram of SoccerEye
+  </p>  
+  
+Its specific functions include the following:
  * player and football object detection
  * player grouping
  * trajectory visualization on bird's eye view
  * real-time speed display
- * advertising maps
+ * advertising maps  
+
+ 
 2. **Demo**
    <div align=center>
    <img src="https://github.com/WWandP/SoccerEye/blob/main/demo/demo.gif" width="480" height="260">
@@ -68,10 +75,16 @@ You can flexibly customize the placement and transparency of the ads by adjustin
    # The 1920 x1080 coordinate system is used as the reference , and the origin is in the upper left corner
    frame = show_ad ( detections =players_detections , homography =M , img =frame , ad_img = ad , coord =(800 , 400) ,alpha =0.3)
    ```
-3.**Considerations about BEV**  
+
+3.**Tips for getting a bird 's-eye view**  
 We added a Kalman filter to the ground to bird 's-eye view homography matrix to ensure its smoothness, but we did not add recognition for different scene transitions, so we do not recommend using broadcast video with shot transitions. At the same time, soccer videos with fixed viewpoints will have better results.  
 <br>
-4.**Custom bird's eye view map**  
+4.**Customize the minimap**  
 SoccerEye integrates the function of using opencv to detect the center circle of the soccer field map. If you want to use a custom bird 's-eye view small map image, please ensure that the center circle is very obvious and the image size is 1920 x1080, which is conducive to accurate advertising images.
+
+---
+#### The dataset used by the detector
+You can view or download the dataset we used to train object detection here
+
 
 
