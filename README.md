@@ -12,7 +12,7 @@ Its specific functions include the following:
  * real-time speed display
  * advertising maps
    <div align=center>
-   <img src="demo/show.png" width="1720" height="600">
+   <img src="demo/show.png" width="859" height="300">
    </div>
    <p align="center">
     Video clips after processing with SoccerEye
