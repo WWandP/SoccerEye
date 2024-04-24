@@ -1,4 +1,4 @@
-# SoccerEye:n Open-Source System for Understanding Monocular Football Videos  
+# SoccerEye: An Open-Source System for Understanding Monocular Football Videos  
 
 ---
 
