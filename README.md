@@ -11,13 +11,20 @@ Its specific functions include the following:
  * trajectory visualization on bird's eye view
  * real-time speed display
  * advertising maps
+   <div align=center>
+   <img src="demo/show.png" width="1720" height="600">
+   </div>
+   <p align="center">
+    Video clips after processing with SoccerEye
+   </p>  
+   
 
 
  
 2. **Demo**
    
    <div align=center>
-   <img src="https://github.com/WWandP/SoccerEye/blob/main/demo/demo.gif" width="480" height="260">
+   <img src="demo/demo.gif" width="480" height="260">
    </div>
    <p align="center">
     Video clips after processing with SoccerEye
