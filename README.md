@@ -1,4 +1,4 @@
-# SoccerEye
+# SoccerEye:n Open-Source System for Understanding Monocular Football Videos  
 
 ---
 
@@ -15,7 +15,7 @@ Its specific functions include the following:
    <img src="demo/show.png" width="859" height="300">
    </div>
    <p align="center">
-    Video clips after processing with SoccerEye
+    SoccerEye features and workflow
    </p>  
    
 
