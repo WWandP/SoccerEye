@@ -38,13 +38,13 @@ Its specific functions include the following:
    conda create -n SoccerEye python==3.10
    conda activate SoccerEye
    pip install -r requirements.txt
-4. **Download Pretrained Models and Test Video**  
+3. **Download Pretrained Models and Test Video**  
    We provide two pre-trained models for the detector, yolov8x_1280.pt, an object detection model trained on yolov8 and maskrcnn.pth, an instance segmentation model . yolov8x_1280.pt is trained on 1103 custom soccer scene images. maskrcnn is a pre-trained model based on COCO dataset.  
 Our example video is a soccer video with a fixed scene.  
 
    * Download the pretrained model([yolov8](https://drive.google.com/file/d/1CxbNcKDag-Z4B5Ez8XmlFvaGgZVlFdzi/view?usp=drive_link) or [maskrcnn](https://drive.google.com/file/d/1PpIXoDwLi-FuBFAVUsIwh0Ljm93JiQaH/view?usp=drive_link)) from here and put it in the *model/* folder.  
    * Download the [test video](https://drive.google.com/file/d/1DszEnRSF5E6NpWvgneFxHAlaP8dxFIsm/view?usp=drive_link) from here and  put it in the *video/* folder.   
-3. **To start using SoccerEye, run the following command:**
+4. **To start using SoccerEye, run the following command:**
    ```bash
    python run.py --detector yolo --model_path model/yolov8x_1280.pt --video video/video.avi
    ```
@@ -52,31 +52,30 @@ Our example video is a soccer video with a fixed scene.
    ```bash
    python run.py --detector yolo --model_path model/yolov8x_1280.pt --video video/video.avi --bev
    ```
-4.Image embedding allows you to place AD images in the field, but it requires an instance segmentation model, so you need to switch the detector to maskrcnn and specify the pre-trained model for maskrcnn. After that, you can use the following command:  
-```bash
-   python run.py --detector maskrcnn --model_path model/maskrcnn.pth --video video/video.avi --bev --ad
-```
-When using the *--bev* command, the speed display is enabled by default, but if you want to turn it off, add the *--nospeed* command.  
+   Image embedding allows you to place AD images in the field, but it requires an instance segmentation model, so you need to switch the detector to maskrcnn and specify the pre-trained model for maskrcnn. After that, you can use the   following command:  
+   ```bash
+      python run.py --detector maskrcnn --model_path model/maskrcnn.pth --video video/video.avi --bev --ad
+   ```
+   When using the *--bev* command, the speed display is enabled by default, but if you want to turn it off, add the *--nospeed* command.  
 
 ---  
 ### Custom videos
 In the case of custom videos, you need to make some adjustments to the code section to suit your needs.  
-<br>
-1.**Set the team color filter**  
+1. **Set the team color filter**  
    You need to color the players' clothes and assign a specific team to each jersey. In *inference/filters.py*, you can configure the color of the combined team's jersey and the corresponding team name.
-The selection of a wide range of appropriate color filters can improve the classification accuracy.    
-<br>
-2.**Custom AD projection**    
+ The selection of a wide range of appropriate color filters can improve the classification accuracy.    
+
+2. **Custom AD projection**    
 You can flexibly customize the placement and transparency of the ads by adjusting the parameters near line 130 in run.py  
    ```python
    # The 1920 x1080 coordinate system is used as the reference , and the origin is in the upper left corner
    frame = show_ad ( detections =players_detections , homography =M , img =frame , ad_img = ad , coord =(800 , 400) ,alpha =0.3)
    ```
 
-3.**Tips for getting a bird 's-eye view**  
+3. **Tips for getting a bird 's-eye view**  
 We added a Kalman filter to the ground to bird 's-eye view homography matrix to ensure its smoothness, but we did not add recognition for different scene transitions, so we do not recommend using broadcast video with shot transitions. At the same time, soccer videos with fixed viewpoints will have better results.  
-<br>
-4.**Customize the minimap**  
+
+4. **Customize the minimap**  
 SoccerEye integrates the function of using opencv to detect the center circle of the soccer field map. If you want to use a custom bird 's-eye view small map image, please ensure that the center circle is very obvious and the image size is 1920 x1080, which is conducive to accurate advertising images.
 
 ---
