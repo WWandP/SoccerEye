@@ -62,8 +62,10 @@ class Match:
             return
 
         self.ball = ball
-        closest_player = min(players, key=lambda player: player.distance_to_ball(ball))
-
+        if players:
+            closest_player = min(players, key=lambda player: player.distance_to_ball(ball))
+        else:
+            return
         self.closest_player = closest_player
 
         ball_distance = closest_player.distance_to_ball(ball)
