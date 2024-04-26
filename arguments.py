@@ -12,19 +12,19 @@ class ArgumentsBase(object):
         self.base_path = os.getcwd()
         self.isTrain = False
 
-    def main_args_initialization(self):
+ def main_args_initialization(self):
         self.parser.add_argument("--ad", action="store_true",
                                  help="Show advertisement of venue")
         self.parser.add_argument("--detector", type=str,
                                  default="yolo", help="Path to the model")
         self.parser.add_argument("--model_path", type=str,
-                                 default="model/yolov8x.pt", help="Path to the model")
+                                 default="model/yolov8x_1280.pt", help="Path to the model")
         self.parser.add_argument("--video", type=str,
-                                 default="videos/soccer_possession.mp4", help="Path to the input video", )
+                                 default="video/video.avi", help="Path to the input video", )
         self.parser.add_argument("--bev", action="store_true",
                                  help="Show bird eye view")
         self.parser.add_argument("--nospeed", action="store_false",
-                                 help="Show speed")
+                                 help="Whether to turn off speed")
         self.parser.add_argument('--output', type=str, default='inference/output.mp4',
                                  help='output folder')
         self.parser.add_argument('--output_fps', type=int, default=25,
