@@ -11,8 +11,7 @@ class ArgumentsBase(object):
         self.current_path = os.path.join(os.getcwd(), 'perspective_transform')
         self.base_path = os.getcwd()
         self.isTrain = False
-
- def main_args_initialization(self):
+    def main_args_initialization(self):
         self.parser.add_argument("--ad", action="store_true",
                                  help="Show advertisement of venue")
         self.parser.add_argument("--detector", type=str,
