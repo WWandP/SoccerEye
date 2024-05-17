@@ -71,18 +71,29 @@ In the case of custom videos, you need to make some adjustments to the code sect
 1. **Set the team color filter**  
    You need to color the players' clothes and assign a specific team to each jersey. In *inference/filters.py*, you can configure the color of the combined team's jersey and the corresponding team name.
  The selection of a wide range of appropriate color filters can improve the classification accuracy.    
-
-2. **Custom AD projection**    
+   In addition, in run.py you also need to set the team's representative color, which will be used when drawing the detection box with the color information or when displaying the mini bird 's-eye view map, the specific code is around line 37 of run.py：
+    ```python
+   chelsea = Team(
+      name="Chelsea",
+      abbreviation="CHE",
+      color=(255, 0, 0))
+    
+   man_city = Team(
+       name="Man City",
+       abbreviation="MNC",
+       color=(255, 255, 255))
+   ```
+3. **Custom AD projection**    
 You can flexibly customize the placement and transparency of the ads by adjusting the parameters near line 130 in run.py  
    ```python
    # The 1920 x1080 coordinate system is used as the reference , and the origin is in the upper left corner
    frame = show_ad ( detections =players_detections , homography =M , img =frame , ad_img = ad , coord =(800 , 400) ,alpha =0.3)
    ```
 
-3. **Tips for getting a bird 's-eye view**  
+4. **Tips for getting a bird 's-eye view**  
 We added a Kalman filter to the ground to bird 's-eye view homography matrix to ensure its smoothness, but we did not add recognition for different scene transitions, so we do not recommend using broadcast video with shot transitions. At the same time, soccer videos with fixed viewpoints will have better results.  
 
-4. **Customize the minimap**  
+5. **Customize the minimap**  
 SoccerEye integrates the function of using opencv to detect the center circle of the soccer field map. If you want to use a custom bird 's-eye view small map image, please ensure that the center circle is very obvious and the image size is 1920 x1080, which is conducive to accurate advertising images.
 
 ---
