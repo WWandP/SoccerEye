@@ -9,7 +9,7 @@ class BirdEyeViewDrawer:
     A class for drawing bird's eye view representation of players and ball on a given frame.
     """
 
-    def __init__(self, gt_img, w, h):
+    def __init__(self, gt_img, w, h, t1_color=(255, 0, 0), t2_color=(255, 255, 255)):
         """
         Initialize the BirdEyeViewDrawer.
 
@@ -25,9 +25,9 @@ class BirdEyeViewDrawer:
         self.pix_dist = 18.3 / detect_circle_diameter(gt_img)
         for i in range(0, 30):
             if i < 10:
-                point = Point(i, (255, 0, 0), (10, 10))
+                point = Point(i, t1_color, (10, 10))
             else:
-                point = Point(i, (255, 255, 255), (10, 10))
+                point = Point(i, t2_color, (10, 10))
             self.points_set[point.id] = point
         self.points_used_id = {}
 

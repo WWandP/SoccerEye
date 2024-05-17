@@ -69,7 +69,7 @@ gt_img = cv2.imread('./inference/white2.png')
 gt_h, gt_w, _ = gt_img.shape
 gt_h_h = int(gt_h / 3)
 gt_w_h = int(gt_w / 3)
-birdView = BirdEyeViewDrawer(gt_img, gt_w_h, gt_h_h)
+birdView = BirdEyeViewDrawer(gt_img, gt_w_h, gt_h_h, t1_color=teams[0].color, t2_color=teams[1].color)
 # ad img
 ad = cv2.imread("Ads.png")
 ad = cv2.cvtColor(ad, cv2.COLOR_BGR2BGRA)
