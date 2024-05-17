@@ -23,9 +23,11 @@ from soccer.Perspective_transform import Perspective_transform
 args = Arguments().parse()
 video = Video(input_path=args.video, output_path=args.output, output_fps=args.output_fps)
 fps = video.video_capture.get(cv2.CAP_PROP_FPS)
+
 # Object Detectors
 detector = Detector(model_path=args.model_path, detector=args.detector)
 print("model init already :)")
+
 # HSV Classifier
 hsv_classifier = HSVClassifier(filters=filters)
 # Add inertia to classifier
@@ -35,15 +37,16 @@ perspective_transform = Perspective_transform()
 chelsea = Team(
     name="Chelsea",
     abbreviation="CHE",
-    color=(255, 0, 0),
-    board_color=(244, 86, 64),
-    text_color=(255, 255, 255),
-)
-man_city = Team(name="Man City", abbreviation="MNC", color=(255, 255, 255))
+    color=(255, 0, 0))
+man_city = Team(
+    name="Man City",
+    abbreviation="MNC",
+    color=(255, 255, 255))
 referee = Team(name='Referee', abbreviation="RER", color=(0, 0, 0))
 teams = [chelsea, man_city, referee]
 match = Match(home=chelsea, away=man_city, fps=fps)
 match.team_possession = man_city
+
 # Tracking
 player_tracker = Tracker(
     distance_function=mean_euclidean,
@@ -70,6 +73,7 @@ gt_h, gt_w, _ = gt_img.shape
 gt_h_h = int(gt_h / 3)
 gt_w_h = int(gt_w / 3)
 birdView = BirdEyeViewDrawer(gt_img, gt_w_h, gt_h_h, t1_color=teams[0].color, t2_color=teams[1].color)
+
 # ad img
 ad = cv2.imread("Ads.png")
 ad = cv2.cvtColor(ad, cv2.COLOR_BGR2BGRA)
@@ -110,13 +114,11 @@ for i, frame in enumerate(video):
     ball = get_main_ball(ball_detections)
     players = Player.from_detections(detections=players_detections, teams=teams)
     match.update(players, ball)
-
     # annotate video frame
     frame = PIL.Image.fromarray(frame)
     frame = Player.draw_players(
         players=players, frame=frame, confidence=False, id=False
     )
-
     # draw path
     frame = path.draw(
         img=frame,
