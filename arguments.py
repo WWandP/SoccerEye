@@ -44,8 +44,18 @@ class ArgumentsBase(object):
 
         # set gpu ids
         if len(self.opt.gpu_ids) > 0:
-            torch.cuda.set_device(self.opt.gpu_ids[0])
+            # torch.cuda.set_device(self.opt.gpu_ids[0])
+            # Check for device compatibility and set it
+            if torch.cuda.is_available():
+                device = torch.device(f"cuda:{self.opt.gpu_ids[0]}")
+            elif torch.backends.mps.is_available() and torch.backends.mps.is_built():
+                device = torch.device("mps")
+            else:
+                device = torch.device("cpu")
 
+            # Set the device for PyTorch
+            self.opt.device = device
+            print(f"Using device: {device}")
         return self.opt
 
 
